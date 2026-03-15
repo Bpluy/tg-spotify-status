@@ -12,7 +12,7 @@ pip install -r requirements.txt
 
 - `TELEGRAM_API_ID` / `TELEGRAM_API_HASH` — из `https://my.telegram.org` → *API development tools*.
 - `SPOTIFY_CLIENT_ID` / `SPOTIFY_CLIENT_SECRET` — из Spotify Developer Dashboard.
-- `SPOTIFY_REDIRECT_URI` — тот же, что указан в настройках Spotify‑приложения (по умолчанию `http://localhost:8888/callback`).
+- `SPOTIFY_REDIRECT_URI` — тот же, что указан в настройках Spotify‑приложения (по умолчанию `http://127.0.0.1:8888/callback`).
 
 ### 2. Запуск
 
