@@ -101,6 +101,10 @@ async def run():
     try:
         while True:
             try:
+                # Если соединение порвалось, пробуем переподключиться
+                if not client.is_connected():
+                    await client.connect()
+
                 current_track = spotify.current_user_playing_track()
                 status_text = format_track_status(current_track)
 
@@ -109,7 +113,6 @@ async def run():
                         await update_telegram_about(client, status_text)
                         print(f"Обновлён статус: {status_text}")
                     else:
-                        # Если ничего не играет — можете поменять текст по вкусу
                         default_about = "Не слушаю музыку"
                         await update_telegram_about(client, default_about)
                         print("Музыка не играет, установлен дефолтный статус.")
@@ -119,7 +122,8 @@ async def run():
             except Exception as e:
                 print(f"Ошибка при обновлении статуса: {e}")
 
-            time.sleep(POLL_INTERVAL)
+            # НЕ блокируем event loop, используем asyncio.sleep
+            await asyncio.sleep(POLL_INTERVAL)
     finally:
         await client.disconnect()
 
