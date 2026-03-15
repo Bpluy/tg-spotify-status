@@ -16,7 +16,7 @@ TELEGRAM_API_HASH = os.getenv("TELEGRAM_API_HASH", "")
 
 SPOTIFY_CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID", "")
 SPOTIFY_CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET", "")
-SPOTIFY_REDIRECT_URI = os.getenv("SPOTIFY_REDIRECT_URI", "http://localhost:8888/callback")
+SPOTIFY_REDIRECT_URI = os.getenv("SPOTIFY_REDIRECT_URI", "http://127.0.0.1:8888/callback")
 
 # Название локального файла-сессии Telegram
 TELEGRAM_SESSION_NAME = "tg_session"
